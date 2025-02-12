@@ -4,14 +4,14 @@
 
 Swap memory here is usefull when using server with low memory, you can alternatively increase memory using this following command
 
-## 1 Cek Swap yang ada
+## 1 Check existing Swap
 
 ```sh
 sudo swapon --show
 free -h
 ```
 
-## 2. Buat Swap File
+## 2. Create Swap File
 
 ```sh
 sudo fallocate -l 2G /swapfile
@@ -25,33 +25,33 @@ sudo chmod 600 /swapfile
 ls -lh /swapfile
 ```
 
-## 3. Atur Izin Swap File
+## 3. Set Swap File Permissions
 
 ```sh
 sudo chmod 600 /swapfile
 ls -lh /swapfile
 ```
 
-##  4. Format sebagai Swap
+##  4. Format as Swap
 
 ```sh
 sudo mkswap /swapfile
 ```
 
-## 5. Aktifkan Swap
+## 5. Activate Swap
 
 ```sh
 sudo swapon /swapfile
 ```
 
-## 6. Verifikasi
+## 6. Verifying
 
 ```sh
 sudo swapon --show
 free -h
 ```
 
-## 7. Agar Permanen (Setelah Reboot)
+## 7. To Make It Permanent (After Reboot)
 
 Edit file ```/etc/fstab```:
 
@@ -65,7 +65,7 @@ Add this follwing line:
 /swapfile swap swap defaults 0 0
 ```
 
-## 8. Atur Swappiness (Opsional)
+## 8. Set Swappiness (Optional)
 
 Swappiness controls how often the system uses swap (value 0-100). The default value is usually 60, which can be changed to 10 for example to prioritize RAM:
 
@@ -85,7 +85,7 @@ Add:
 vm.swappiness=10
 ```
 
-## 9. Hapus Swap (Opsional)
+## 9. Delete Swap (Optional)
 
 if it is no longer needed:
 
