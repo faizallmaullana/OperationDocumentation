@@ -7,7 +7,7 @@ This is just for my personal documentation. I'm tired of going back and forth to
 ### Operation
 
 - [Setup autorun systemd](Operation/systemd-autorun.md)
-
+- [Nginx Proxy Set Domain and SSL](OperationNginx-SSL-Proxy.md)
 
 ### Storages
 
