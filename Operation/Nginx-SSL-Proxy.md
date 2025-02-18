@@ -21,8 +21,11 @@ sudo apt install certbot python3-certbot-nginx -y
 ### Setup CNAME
 
 **Type**: A
+
 **Name**: tes
+
 **Value**: Public IP
+
 **TTL**: leave as default
 
 
@@ -37,7 +40,7 @@ sudo nano /etc/nginx/sites-available/app.example.com
 ```nginx
 server {
     listen 80;
-    server_name app.example.com;
+    server_name example.com;
     root /var/www/app;
 
     index index.html index.htm;
@@ -53,7 +56,7 @@ server {
 ```nginx
 server {
     listen 80;
-    server_name tes.arkanes.cloud;
+    server_name example.com;
 
     location / {
         proxy_pass http://localhost:3000;
