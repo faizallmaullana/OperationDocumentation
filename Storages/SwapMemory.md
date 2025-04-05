@@ -15,7 +15,6 @@ free -h
 
 ```sh
 sudo fallocate -l 2G /swapfile
-
 ```
 
 If fallocate not available, use:
