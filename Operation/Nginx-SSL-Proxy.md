@@ -71,12 +71,6 @@ server {
 
 ## Enable Configuration
 
-### Enable SSL
-
-```sh
-sudo certbot --nginx -d tes.example.com
-```
-
 ### Create Symbolic Link
 
 ```sh
@@ -88,4 +82,10 @@ sudo ln -s /etc/nginx/sites-available/tes.example.com /etc/nginx/sites-enabled/
 ```sh
 sudo nginx -t
 sudo systemctl reload nginx
+```
+
+### Enable SSL
+
+```sh
+sudo certbot --nginx -d tes.example.com
 ```

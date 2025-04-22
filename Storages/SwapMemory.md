@@ -1,8 +1,10 @@
 # Swap Memory
 
-[Home](../README.md)
+- [Home](../README.md)
+- [Swap Full](SwapMemory.md)
+- [Simple Method](SimpleMethod.md)
 
-Swap memory here is usefull when using server with low memory, you can alternatively increase memory using this following command
+Swap memory here is usefull when using server with low memory, you can alternatively increase memory using this following command.
 
 ## 1 Check existing Swap
 
@@ -94,3 +96,7 @@ sudo rm /swapfile
 ```
 
 Delete following line from ```/etc/fstab```.
+
+## Simple Method
+
+You can see simple use case with [Simple Method](SimpleMethod.md)

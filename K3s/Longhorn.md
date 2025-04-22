@@ -1,14 +1,22 @@
 # Longhorn
 
+- [Home](../README.md)
+- [Instalation](Instalation.md)
+- [Longhorn](Longhorn.md)
 
-### Install Longhorn
+## Install Longhorn
 
 ```sh
 kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v1.5.1/deploy/longhorn.yaml
 ```
 
 
-### Run Temporary Longhorn
+## Run Temporary Longhorn
+
+You can use command line or configuration file yaml
+
+### Command Line
+
 ```sh
 kubectl run longhorn-writer \
   -n suarai-backend \
@@ -16,6 +24,8 @@ kubectl run longhorn-writer \
   --restart=Never \
   --command -- sleep 3600
 ````
+
+### Configuration file yaml
 
 ```yaml
 # longhorn-writer.yaml
@@ -38,15 +48,37 @@ spec:
         claimName: suarai-source-pvc
 ```
 
-### Coppy to Longhorn
+## Copy to Longhorn
+
+Here is how to copy file to inside longhorn
 
 ```sh
 kubectl cp /home/ubuntu/my-binary suarai-backend/longhorn-writer:/data/my-binary
 kubectl exec -n suarai-backend longhorn-writer -- chmod +x /data/my-binary
 ```
 
-### certmanager
+## Longhhorn-ui
 
-```sh
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml
+Configuration to expose longhorn UI using ingress
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: longhorn-ingress
+  namespace: longhorn-system
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+spec:
+  rules:
+  - host:
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: longhorn-frontend
+            port:
+              number: 80
 ```
